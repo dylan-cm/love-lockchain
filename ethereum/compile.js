@@ -1,15 +1,15 @@
-// const path = require("path");
-// const fs = require("fs");
-// const solc = require("solc");
+// const path = require('path');
+// const fs = require('fs');
+// const solc = require('solc');
 //
 // // get contract path
-// const inbothPath = path.resolve(__dirname, "contracts", "LoveLockChain.sol");
+// const inbothPath = path.resolve(__dirname, 'contracts', 'LoveLockChain.sol');
 //
 // // read in contract source code
-// const source = fs.readFileSync(inbothPath, "utf8");
+// const source = fs.readFileSync(inbothPath, 'utf8');
 //
 // // compile source code. gets us interface(abi) and byte code. allow us to export compiled code.
-// module.exports = solc.compile(source, 1).contracts[":LoveLockChain"];
+// module.exports = solc.compile(source, 1).contracts[':LoveLockChain'];
 
 // if packages need to be reinstalled
 // npn install --save solc

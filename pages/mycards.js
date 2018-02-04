@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { Card, Button } from 'semantic-ui-react';
 import Layout from '../components/Layout';
+import web3 from '../ethereum/web3.js';
 import cardFactory from '../ethereum/cardFactory.js';
 import { Link } from '../routes';
 
-class LoveLockIndex extends Component {
+class MyIndex extends Component {
 	static async getInitialProps() {
-		const locks = await cardFactory.methods.getHashes().call();
+		const accounts = await web3.eth.getAccounts();
+		const locks = await cardFactory.methods.getUserCards(accounts[0]).call();
 
 		return { locks };
 	}
 
 	renderLocks() {
 		const items = this.props.locks.map(address => {
-			// this.setState({ cardMessage: getMessage(address) });
-
 			return {
 				header: address,
 				description: (
@@ -33,7 +33,7 @@ class LoveLockIndex extends Component {
 		return (
 			<Layout>
 				<div>
-					<h3>All The Cards</h3>
+					<h3>All My Cards</h3>
 					{this.renderLocks()}
 				</div>
 			</Layout>
@@ -41,4 +41,4 @@ class LoveLockIndex extends Component {
 	}
 }
 
-export default LoveLockIndex;
+export default MyIndex;

@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import Layout from '../../components/Layout';
-import cardFactory from '../../ethereum/cardFactory.js';
+import Card from '../../components/Card';
+import CardFactory from '../../ethereum/cardFactory.js';
 
 class CardShow extends Component {
-	// static async getInitialProps() {}
-	//
-	// async renderCard() {
-	// 	const card = await cardFactory.methods.getCreators().call();
-	//
-	// 	return { card };
-	// }
+	static async getInitialProps(props) {
+		const card = await CardFactory.methods.cards(props.query.address).call();
+
+		// console.log(card);
+
+		return { card };
+	}
 
 	render() {
 		return (
 			<Layout>
-				<h3>Card View</h3>
-				{/* <div>{this.renderCard()}</div> */}
+				<h1>{this.props.card}</h1>
+				<Card />
 			</Layout>
 		);
 	}

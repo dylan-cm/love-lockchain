@@ -17,8 +17,7 @@ const deploy = async () => {
 		JSON.parse(compiledLoveLockChain.interface)
 	)
 		.deploy({
-			data: compiledLoveLockChain.bytecode,
-			arguments: ['Blockchains are forever']
+			data: compiledLoveLockChain.bytecode
 		})
 		.send({ gas: '1000000', from: accounts[0] });
 
