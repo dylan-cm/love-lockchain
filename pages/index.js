@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, Button } from 'semantic-ui-react';
 import Layout from '../components/Layout';
 import cardFactory from '../ethereum/cardFactory.js';
+import { Link } from '../routes';
 
 class LoveLockIndex extends Component {
 	// state = {
@@ -29,7 +30,11 @@ class LoveLockIndex extends Component {
 
 			return {
 				header: address,
-				description: <a>View Card</a>,
+				description: (
+					<Link route={`/cards/${address}`}>
+						<a>View Card</a>
+					</Link>
+				),
 				fluid: true
 			};
 		});
@@ -42,12 +47,16 @@ class LoveLockIndex extends Component {
 			<Layout>
 				<div>
 					<h3>All The Cards</h3>
-					<Button
-						floated="right"
-						content="Write Your Valentine"
-						icon="add circle"
-						primary={true}
-					/>
+					<Link route="/cards/new">
+						<a>
+							<Button
+								floated="right"
+								content="Write Your Valentine"
+								icon="add circle"
+								primary={true}
+							/>
+						</a>
+					</Link>
 					{this.renderLocks()}
 				</div>
 			</Layout>

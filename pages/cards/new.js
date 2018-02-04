@@ -3,6 +3,7 @@ import { Form, Button, Input, Message, TextArea } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import web3 from '../../ethereum/web3.js';
 import cardFactory from '../../ethereum/cardFactory.js';
+import { Router } from '../../routes';
 
 class CardNew extends Component {
 	state = {
@@ -22,6 +23,8 @@ class CardNew extends Component {
 				from: accounts[0],
 				value: web3.utils.toWei('.001', 'ether')
 			});
+
+			Router.pushRoute('/');
 		} catch (err) {
 			this.setState({ errorMessage: err.message });
 		}
@@ -35,7 +38,6 @@ class CardNew extends Component {
 		return (
 			<Layout>
 				<h3>Create a Valentine Card</h3>
-
 				<Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
 					<TextArea
 						autoHeight
