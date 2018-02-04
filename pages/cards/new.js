@@ -28,22 +28,21 @@ class CardNew extends Component {
 	};
 
 	render() {
+		// console.log(this.state.loveLetter);
+
 		return (
 			<Layout>
 				<h3>Create a Valentine Card</h3>
 
 				<Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
-					{/* <Form.Field>
-						<label>Write Your Love Letter</label>
-						<Input
-							value={this.state.loveLetter}
-							onChange={event =>
-								this.setState({ loveLetter: event.target.value })
-							}
-						/>
-					</Form.Field> */}
-
-					<TextArea autoHeight placeholder="Try adding multiple lines" />
+					<TextArea
+						autoHeight
+						placeholder="Write Your Love Letter"
+						value={this.state.loveLetter}
+						onChange={event =>
+							this.setState({ loveLetter: event.target.value })
+						}
+					/>
 					<Message error header="Oops" content={this.state.errorMessage} />
 					<Button loading={this.state.loading} primary>
 						Create!
