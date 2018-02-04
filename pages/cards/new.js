@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Button, Input, Message, TextArea } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import web3 from '../../ethereum/web3.js';
+import cardFactory from '../../ethereum/cardFactory.js';
 
 class CardNew extends Component {
 	state = {
@@ -17,8 +18,9 @@ class CardNew extends Component {
 
 		try {
 			const accounts = await web3.eth.getAccounts();
-			await lovelocks.methods.createCard(this.state.loveLetter).send({
-				from: accounts[0]
+			await cardFactory.methods.createCard(this.state.loveLetter).send({
+				from: accounts[0],
+				value: web3.utils.toWei('.001', 'ether')
 			});
 		} catch (err) {
 			this.setState({ errorMessage: err.message });
