@@ -11,7 +11,7 @@ const provider = ganache.provider();
 const web3 = new Web3(provider);
 
 // gets interface(abi), and byte code of the compiled contract
-const { interface, bytecode } = require("../compile.js");
+const { interface, bytecode } = require("../ethereum/compile.js");
 
 //accounts used to deploy contract
 let accounts;

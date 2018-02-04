@@ -15,10 +15,7 @@ module.exports = solc.compile(source, 1).contracts[":LoveLockChain"];
 // npn install --save solc
 // npm install --save mocha ganache-cli web3@1.0.0-beta.27
 
-// if packages need to be reinstalled
-// npn install --save solc
-// npm install --save mocha ganache-cli web3@1.0.0-beta.27
-
+// old code
 // const path = require('path');
 // const solc = require('solc');
 // const fs = require('fs-extra');
